@@ -1,0 +1,17 @@
+#!/bin/sh
+find ./png/builds/01-Personal/ -name *.png -exec mogrify -crop 550x795+1320+175 -resize 184x -format jpg '{}' \;
+find ./png/builds/02-Greenbeard/ -name *.png ! -name Perks* -exec mogrify -crop 1820x795+50+175 -resize 1519x -format jpg '{}' \;
+find ./png/builds/02-Greenbeard/06-Perks/ -name *.png -exec convert {} {}.jpg \;
+find ./png/builds/03-DIY/ -name *.png -exec mogrify -crop 550x795+1320+175 -resize 184x -format jpg '{}' \;
+find ./png/mod_trees/ -name *.png -exec mogrify -crop 550x795+1320+175 -resize 459x -format jpg '{}' \;
+rm -rf jpg
+mkdir jpg
+cd png
+find -name *.jpg -exec cp {} ../jpg/ --parents \;
+find -name *.jpg -exec rm {} +
+# mogrify -resize 24x12 -format jpeg original/icons/index/DIY/weapons/*.webp
+# mogrify -resize 12x12 -format jpeg original/icons/index/DIY/classes/*.webp
+# mogrify -resize 12x12 -format jpeg original/icons/index/greenbeard/*.webp
+# mogrify -resize 12x12 -format jpeg original/icons/index/personal/*.webp
+# mogrify -resize 16x16 -format jpeg original/icons/missions/*.webp
+# mogrify -resize 16x16 -format jpeg original/icons/warnings/*.webp
