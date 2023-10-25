@@ -4,6 +4,7 @@ find ./png/builds/02-Greenbeard/ -name *.png ! -name Perks* -exec mogrify -crop 
 find ./png/builds/02-Greenbeard/06-Perks/ -name *.png -exec convert {} {}.jpg \;
 find ./png/builds/03-DIY/ -name *.png -exec mogrify -crop 550x795+1320+175 -resize 184x -format jpg '{}' \;
 find ./png/mod_trees/ -name *.png -exec mogrify -crop 550x795+1320+175 -resize 459x -format jpg '{}' \;
+find . -name Fancy.png -exec mogrify -crop 450x700+735+225 -format jpg {} \;
 rm -rf jpg
 mkdir jpg
 cd png
