@@ -1,10 +1,15 @@
 #!/bin/sh
-find ./png/builds/01-Personal/ -name *.png -exec mogrify -crop 550x795+1320+175 -resize 184x -format jpg '{}' \;
-find ./png/builds/02-Greenbeard/ -name *.png ! -name Perks* -exec mogrify -crop 1820x795+50+175 -resize 1519x -format jpg '{}' \;
+
+diy=185
+float=150
+# Everything inside a table doesn't need to be resized.
+find ./png/builds/01-Personal/ -name *.png -exec mogrify -crop 550x795+1320+175 -format jpg '{}' \;
+find ./png/builds/02-Greenbeard/ -name *.png ! -name Perks* ! -name 01.Armor_green_build.png -exec mogrify -crop 1820x795+50+175 -format jpg '{}' \;
+find ./png/builds/02-Greenbeard/ -name 01.Armor_green_build.png -exec mogrify -crop 550x795+1320+175 -resize "$float"x -format jpg '{}' \;
 find ./png/builds/02-Greenbeard/06-Perks/ -name *.png -exec convert {} {}.jpg \;
-find ./png/builds/03-DIY/ -name *.png -exec mogrify -crop 550x795+1320+175 -resize 184x -format jpg '{}' \;
-find ./png/mod_trees/ -name *.png -exec mogrify -crop 550x795+1320+175 -resize 459x -format jpg '{}' \;
-find . -name Fancy.png -exec mogrify -crop 450x700+735+225 -format jpg {} \;
+find ./png/builds/03-DIY/ -name *.png -exec mogrify -crop 550x795+1320+175 -resize "$diy"x -format jpg '{}' \;
+find ./png/mod_trees/ -name *.png -exec mogrify -crop 550x795+1320+175 -format jpg '{}' \;
+find . -name Fancy.png -exec mogrify -crop 450x700+735+225 -resize "$float"x -format jpg {} \;
 rm -rf jpg
 mkdir jpg
 cd png
