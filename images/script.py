@@ -38,6 +38,8 @@ for frame in frames:
                     "composite",
                     "-gravity",
                     "center",
+                    "-define",
+                    "png:exclude-chunks=date,tIME",
                     upgrade,
                     frame,
                     dest,
