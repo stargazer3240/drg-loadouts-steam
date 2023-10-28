@@ -13,7 +13,6 @@ fd . "02-Greenbeard/06-Perks/" -e png --base-directory builds/png -x convert {} 
 fd . "03-DIY/" -e png --base-directory builds/png -x convert {} -crop "$crop_mods" -resize "$diy" "$dest" \;
 fd -e png --base-directory mod_trees/png -x convert {} -crop "$crop_mods" "$dest" \;
 fd Fancy.png --base-directory misc/png -x convert {} -crop 450x700+735+225 -resize "$float" "$dest" \;
-# find . -name Fancy.png -exec mogrify -crop 450x700+735+225 -resize "$float" -format jpg {} \;
 
 # mogrify -resize 24x12 -format jpeg original/icons/index/DIY/weapons/*.webp
 # mogrify -resize 12x12 -format jpeg original/icons/index/DIY/classes/*.webp
