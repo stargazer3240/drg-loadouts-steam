@@ -14,20 +14,24 @@ for frame in frames:
 
     if "Clean" in frame:
         subfolder = "01-Clean/"
-        oc_type = "clean"
+        oc_type = "Clean"
     elif "Balanced" in frame:
         subfolder = "02-Balanced/"
-        oc_type = "balanced"
+        oc_type = "Balanced"
     elif "Unstable" in frame:
         subfolder = "03-Unstable/"
-        oc_type = "unstable"
+        oc_type = "Unstable"
 
     frame = frames_path + frame
     dest_path = base_dir + "overclocks/png/" + subfolder
 
     for upgrade in upgrades:
         upgrade = upgrades_path + upgrade
-        dest = dest_path + "0" + str(i) + "." + oc_type + ".png"
+        if i < 10:
+            number = "00" + str(i) + "."
+        else:
+            number = "0" + str(i) + "."
+        dest = dest_path + number + oc_type + ".png"
         if "48px" in upgrade:
             subprocess.run(
                 [
