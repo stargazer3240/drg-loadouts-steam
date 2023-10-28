@@ -13,7 +13,7 @@ fd . "02-Greenbeard/06-Perks/" -e png --base-directory builds/png -x convert {} 
 fd . "03-DIY/" -e png --base-directory builds/png -x convert {} -crop "$crop_mods" -resize "$diy" "$dest" \;
 fd -e png --base-directory mod_trees/png -x convert {} -crop "$crop_mods" "$dest" \;
 fd Fancy.png --base-directory misc/png -x convert {} -crop 450x700+735+225 -resize "$float" "$dest" \;
-fd -e png --base-directory icons/overclocks/png -d 2 -x convert -resize 64 {} "{//}/64px/{/.}_64px_icon.png" \;
-fd -e png --base-directory icons/overclocks/png -d 2 -x convert -resize 32 {} "{//}/32px/{/.}_32px_icon.png" \;
-fd -e png --base-directory icons/overclocks/png -d 2 -x convert -resize 16 {} "{//}/16px/{/.}_16px_icon.png" \;
+fd -e png --base-directory icons/overclocks/png -d 2 -x convert -resize 64 {} "{//}/64px/{/.}_64px.png" \;
+fd -e png --base-directory icons/overclocks/png -d 2 -x convert -resize 32 {} "{//}/32px/{/.}_32px.png" \;
+fd -e png --base-directory icons/overclocks/png -d 2 -x convert -resize 16 {} "{//}/16px/{/.}_16px.png" \;
 fd -e webp --base-directory icons/missions/webp -x convert -resize 16 {} ../png/"{.}".png \;
