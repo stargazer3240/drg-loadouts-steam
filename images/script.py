@@ -31,7 +31,7 @@ for frame in frames:
             number = "00" + str(i) + "."
         else:
             number = "0" + str(i) + "."
-        dest = dest_path + number + oc_type + ".png"
+        dest = dest_path + number + oc_type + "_icon.png"
         if "48px" in upgrade:
             subprocess.run(
                 [
