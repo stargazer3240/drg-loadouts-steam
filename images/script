@@ -5,7 +5,6 @@ float=150x
 crop_mods=550x795+1320+175
 dest=../jpg/"{.}".jpg
 
-# Everything inside a table doesn't need to be resized.
 fd . "01-Personal/" -e png --base-directory builds/png -x convert {} -crop "$crop_mods" "$dest" \;
 fd . "02-Greenbeard/" -e png -E "Perks*" -E 01.Armor_green_build.png --base-directory builds/png -x convert {} -crop 1820x795+50+175 "$dest" \;
 fd 01.Armor_green_build.png --base-directory builds/png -x convert {} -crop "$crop_mods" -resize "$float" "$dest" \;
