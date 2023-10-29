@@ -8,10 +8,10 @@ upgrades_path = base_dir + "upgrades/webp/"
 upgrades = os.listdir(upgrades_path)
 subfolder = ""
 oc_type = ""
+name = ""
+icon = "_icon.png"
 
 for frame in frames:
-    i = 1
-
     if "Clean" in frame:
         subfolder = "01-Clean/"
         oc_type = "Clean"
@@ -26,13 +26,13 @@ for frame in frames:
     dest_path = base_dir + "overclocks/png/" + subfolder
 
     for upgrade in upgrades:
-        upgrade = upgrades_path + upgrade
-        if i < 10:
-            number = "00" + str(i) + "."
-        else:
-            number = "0" + str(i) + "."
-        dest = dest_path + number + oc_type + "_icon.png"
         if "48px" in upgrade:
+            if "Overclock" in upgrade:
+                name = upgrade[20:-5]
+            elif "Upgrade" in upgrade:
+                name = upgrade[18:-5]
+            upgrade = upgrades_path + upgrade
+            dest = dest_path + name + "_" + oc_type + icon
             subprocess.run(
                 [
                     "composite",
@@ -45,4 +45,3 @@ for frame in frames:
                     dest,
                 ]
             )
-            i += 1
