@@ -66,8 +66,8 @@ for frame in frames:
     subfolder, oc_type = find_oc_type(frame)
     frame = os.path.join(frames_path, frame)
     dest_path = os.path.join(base_dir, "overclocks", "png", subfolder)
-    # for upgrade in upgrades:
-    #     composite_overclock(upgrade)
+    for upgrade in upgrades:
+        composite_overclock(upgrade)
 
 
 def run_convert(src: str, size: str, dest: str):
@@ -79,8 +79,8 @@ def append_px(size: str):
 
 
 # This loop creates the 16px version of each upgrade/overclock icon.
+size = "16"
 for upgrade in upgrades:
-    size = "16"
     src = os.path.join(upgrades_src, upgrade)
     name = get_upgrade_name(upgrade)
     size_px = append_px(size)
@@ -100,4 +100,4 @@ for root, dirs, files in os.walk(overclocks_path):
                 size_px = append_px(sizes[i])
                 new_name = name[: name.find("icon")]
                 dest = os.path.join(root, size_px, new_name + size_px + icon_suffix)
-                # run_convert(src, sizes[i], dest)
+                run_convert(src, sizes[i], dest)
