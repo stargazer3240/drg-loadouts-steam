@@ -5,11 +5,12 @@ float=150x
 crop_mods=550x795+1320+175
 dest=../jpg/"{.}".jpg
 
-fd . "01-Personal/" -e png --base-directory builds/png -x convert {} -crop "$crop_mods" "$dest" \;
+fd . "01-Personal/" -e png -E "*Perks*" --base-directory builds/png -x convert {} -crop "$crop_mods" "$dest" \;
+fd "Perks" "01-Personal/" --base-directory builds/png -x convert {} -crop 57x291+470+180 "$dest" \;
 fd . "02-Greenbeard/" -e png -E "Perks*" -E 01.Armor_green_build.png --base-directory builds/png -x convert {} -crop 1820x795+50+175 "$dest" \;
 fd 01.Armor_green_build.png --base-directory builds/png -x convert {} -crop "$crop_mods" -resize "$float" "$dest" \;
 fd . "02-Greenbeard/06-Perks/" -e png --base-directory builds/png -x convert {} "$dest" \;
-fd . "03-DIY/" -e png --base-directory builds/png -x convert {} -crop "$crop_mods" -resize "$diy" "$dest" \;
+fd . "03-DIY/" -e png -E "*Perk*" --base-directory builds/png -x convert {} -crop "$crop_mods" -resize "$diy" "$dest" \;
 fd -e png --base-directory mod_trees/png -x convert {} -crop "$crop_mods" "$dest" \;
 fd Fancy.png --base-directory misc/png -x convert {} -crop 450x700+735+225 -resize "$float" "$dest" \;
 fd -e webp --base-directory icons/missions/webp -x convert -define png:exclude-chunks=tIME,date -resize 16 {} ../png/"{.}".png \;
