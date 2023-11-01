@@ -12,7 +12,7 @@ frames = os.listdir(frames_path)
 upgrades = os.listdir(upgrades_src)
 
 
-def run_composite(upgrade: str, frame: str, dest: str):
+def run_composite(upgrade: str, frame: str, dest: str) -> None:
     subprocess.run(
         [
             "composite",
@@ -27,7 +27,7 @@ def run_composite(upgrade: str, frame: str, dest: str):
     )
 
 
-def get_upgrade_name(upgrade: str):
+def get_upgrade_name(upgrade: str) -> str:
     name = ""
     if "Overclock" in upgrade:
         name = upgrade[20:-5]
@@ -36,7 +36,7 @@ def get_upgrade_name(upgrade: str):
     return name
 
 
-def composite_overclock(upgrade: str):
+def composite_overclock(upgrade: str) -> None:
     if "48px" in upgrade:
         name = get_upgrade_name(upgrade)
         upgrade = os.path.join(upgrades_path, upgrade)
@@ -44,7 +44,7 @@ def composite_overclock(upgrade: str):
         run_composite(upgrade, frame, dest)
 
 
-def find_oc_type(frame: str):
+def find_oc_type(frame: str) -> tuple[str, str]:
     subfolder = ""
     oc_type = ""
     if "Clean" in frame:
@@ -70,11 +70,11 @@ for frame in frames:
         composite_overclock(upgrade)
 
 
-def run_convert(src: str, size: str, dest: str):
+def run_convert(src: str, size: str, dest: str) -> None:
     subprocess.run(["convert", src, "-define", png_exclude, "-resize", size, dest])
 
 
-def append_px(size: str):
+def append_px(size: str) -> str:
     return size + "px"
 
 
