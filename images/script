@@ -4,6 +4,7 @@ diy=185x
 float=150x
 crop_mods=550x795+1320+175
 dest=../jpg/"{.}".jpg
+png_exclude=png:exclude-chunks=tIME,date
 
 fd . "01-Personal/" -e png -E "*Perks*" --base-directory builds/png -x convert {} -crop "$crop_mods" "$dest" \;
 fd "Perks" "01-Personal/" --base-directory builds/png -x convert {} -crop 57x291+470+180 "$dest" \;
@@ -13,4 +14,8 @@ fd . "02-Greenbeard/06-Perks/" -e png --base-directory builds/png -x convert {} 
 fd . "03-DIY/" -e png -E "*Perk*" --base-directory builds/png -x convert {} -crop "$crop_mods" -resize "$diy" "$dest" \;
 fd -e png --base-directory mod_trees/png -x convert {} -crop "$crop_mods" "$dest" \;
 fd Fancy.png --base-directory misc/png -x convert {} -crop 450x700+735+225 -resize "$float" "$dest" \;
-fd -e webp --base-directory icons/missions/webp -x convert -define png:exclude-chunks=tIME,date -resize 16 {} ../png/"{.}".png \;
+fd -e webp --base-directory icons/missions/webp -x convert -define "$png_exclude" -resize 16 {} ../png/"{.}".png \;
+fd -e webp --base-directory icons/warnings/webp -x convert -define "$png_exclude" -resize 16 {} ../png/"{.}".png \;
+fd -e webp --base-directory icons/index/greenbeard/webp -x convert -define "$png_exclude" -resize 12 {} ../png/"{.}".png \;
+fd -e webp --base-directory icons/index/personal/webp -x convert -define "$png_exclude" -resize 12 {} ../png/"{.}".png \;
+fd -e webp --base-directory icons/index/DIY/classes/webp -x convert -define "$png_exclude" -resize 12 {} ../png/"{.}".png \;

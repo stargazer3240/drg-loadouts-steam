@@ -33,13 +33,15 @@ def get_upgrade_name(upgrade: str) -> str:
         name = upgrade[20:-5]
     elif "Upgrade" in upgrade:
         name = upgrade[18:-5]
+    else:
+        name = upgrade[10:-5]
     return name
 
 
 def composite_overclock(upgrade: str) -> None:
     if "48px" in upgrade:
         name = get_upgrade_name(upgrade)
-        upgrade = os.path.join(upgrades_path, upgrade)
+        upgrade = os.path.join(upgrades_src, upgrade)
         dest = os.path.join(dest_path, name + "_" + oc_type + icon_suffix)
         run_composite(upgrade, frame, dest)
 
@@ -86,7 +88,6 @@ for upgrade in upgrades:
     size_px = append_px(size)
     dest = os.path.join(upgrades_path, "png", name + "_" + size_px + icon_suffix)
     run_convert(src, size, dest)
-
 
 # This loop creates the 64, 32 and 16 pixel version of each overclock composition.
 depth = 4
