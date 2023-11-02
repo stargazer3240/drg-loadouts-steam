@@ -17,7 +17,7 @@ fd -e png --base-directory mod_trees/png -x convert {} -crop "$crop_mods" "$dest
 fd Fancy.png --base-directory misc/png -x convert {} -crop 450x700+735+225 -resize "$float" "$dest_jpg" \;
 fd -e webp --base-directory icons/missions/webp -x convert -define "$png_exclude" -resize 16 {} "$dest_png" \;
 fd -e webp --base-directory icons/warnings/webp -x convert -define "$png_exclude" -resize 16 {} "$dest_png" \;
-fd -e webp --base-directory icons/index/greenbeard/webp -x convert -define "$png_exclude" -resize 12 {} "$dest_png" \;
+fd -e webp --base-directory icons/index/greenbeard/webp -x convert -define "$png_exclude" -resize x12 {} "$dest_png" \;
 fd -e webp --base-directory icons/index/personal/webp -x convert -define "$png_exclude" -resize 12 {} "$dest_png" \;
 fd -e webp --base-directory icons/index/DIY/classes/webp -x convert -define "$png_exclude" -resize 12 {} "$dest_png" \;
-fd -e webp --base-directory icons/index/DIY/weapons/webp -x convert -define "$png_exclude" -resize 12 {} "$dest_png" \;
+fd -e webp --base-directory icons/index/DIY/weapons/webp -x convert -define "$png_exclude" -resize x12 {} "$dest_png" \;
