@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# This script handles builds and mod trees images, and misc icons.
+
 diy=185x
 float=150x
 crop_mods=550x795+1320+175

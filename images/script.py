@@ -1,3 +1,5 @@
+# This script handles OCs and upgrades icons.
+
 import os
 import subprocess
 
@@ -63,7 +65,7 @@ def find_oc_type(frame: str) -> tuple[str, str]:
 
 
 # This loop matchs each of the three frames with each upgrade/overclock icon and
-# then uses Magick composite.
+# then composite the overclock icons
 for frame in frames:
     subfolder, oc_type = find_oc_type(frame)
     frame = os.path.join(frames_path, frame)
