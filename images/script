@@ -11,13 +11,13 @@ png_exclude=png:exclude-chunks=tIME,date
 builds_dir=src/builds
 icons_dir=src/icons
 
-fd . "$builds_dir/01-Personal/" -e png -E "*Perks*" -x convert {} -crop "$crop_mods" "$dest_jpg" \;
-fd "Perks" "$builds_dir/01-Personal/" -x convert {} -crop 57x291+470+180 "$dest_jpg" \;
-fd . "$builds_dir/02-Greenbeard/" -e png -E "Perks*" -E 01.Armor_green_build.png -x convert {} -crop 1820x795+50+175 "$dest_jpg" \;
-fd 01.Armor_green_build.png -x convert {} -crop "$crop_mods" -resize "$float" "$dest_jpg" \;
-fd . "$builds_dir/02-Greenbeard/06-Perks/" -e png -x convert {} "$dest_jpg" \;
-fd . "$builds_dir/03-DIY/" -e png -E "*Perk*" -x convert {} -crop "$crop_mods" -resize "$diy" "$dest_jpg" \;
-fd . "src/mod_trees" -e png -x convert {} -crop "$crop_mods" "$dest_jpg" \;
-fd Fancy.png -x convert {} -crop 450x700+735+225 -resize "$float" "$dest_jpg" \;
-fd . "$icons_dir/missions" "$icons_dir/warnings" -e webp -x convert -define "$png_exclude" -resize 16 {} "$dest_png" \;
-fd . "$icons_dir/index" -e webp -x convert -define "$png_exclude" -resize 12 {} "$dest_png" \;
+fd . "$builds_dir/01-Personal/" -e png -E "*Perks*" -x magick {} -crop "$crop_mods" "$dest_jpg" \;
+fd "Perks" "$builds_dir/01-Personal/" -x magick {} -crop 57x291+470+180 "$dest_jpg" \;
+fd . "$builds_dir/02-Greenbeard/" -e png -E "Perks*" -E 01.Armor_green_build.png -x magick {} -crop 1820x795+50+175 "$dest_jpg" \;
+fd 01.Armor_green_build.png -x magick {} -crop "$crop_mods" -resize "$float" "$dest_jpg" \;
+fd . "$builds_dir/02-Greenbeard/06-Perks/" -e png -x magick {} "$dest_jpg" \;
+fd . "$builds_dir/03-DIY/" -e png -E "*Perk*" -x magick {} -crop "$crop_mods" -resize "$diy" "$dest_jpg" \;
+fd . "src/mod_trees" -e png -x magick {} -crop "$crop_mods" "$dest_jpg" \;
+fd Fancy.png -x magick {} -crop 450x700+735+225 -resize "$float" "$dest_jpg" \;
+fd . "$icons_dir/missions" "$icons_dir/warnings" -e webp -x magick {} -define "$png_exclude" -resize 16 "$dest_png" \;
+fd . "$icons_dir/index" -e webp -x magick {} -define "$png_exclude" -resize 12 "$dest_png" \;
