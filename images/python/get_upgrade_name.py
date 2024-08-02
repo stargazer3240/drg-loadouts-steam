@@ -1,8 +1,11 @@
 def get_upgrade_name(upgrade):
+    name = upgrade[10:]
+    if "png" in upgrade:
+        name = name.removesuffix(".png")
+    elif "webp" in upgrade:
+        name = name.removesuffix(".webp")
     if "Overclock" in upgrade:
-        name = upgrade[20:-5]
+        name = name.removeprefix("Overclock_")
     elif "Upgrade" in upgrade:
-        name = upgrade[18:-5]
-    else:
-        name = upgrade[10:-5]
+        name = name.removeprefix("Upgrade_")
     return name
